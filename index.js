@@ -8,7 +8,7 @@ var AWS = require('aws-sdk-promise');
 var moment = require('moment');
 var util = require('util');
 var readFileAsync = Bluebird.promisify(fs.readFile);
-var BaseStore = require('ghost/core/server/storage/base');
+var BaseStore = require((process.env.GHOST_BASE || 'ghost') + '/core/server/storage/base');
 var options = {};
 
 function S3Store(config) {
